@@ -1,0 +1,11 @@
+_name_: rwkv
+
+config:
+  n_embd: 256
+  head_size: 64
+  n_layer: 8
+  dropout: 0.2
+  ctx_len: 1024
+  dim_ffn: 1024 # n_embd * 4
+  pre_ffn: 0
+  my_pos_emb: 0

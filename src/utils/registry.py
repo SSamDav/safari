@@ -24,6 +24,7 @@ model = {
     "lm": "src.models.sequence.long_conv_lm.ConvLMHeadModel",
     "lm_simple": "src.models.sequence.simple_lm.SimpleLMHeadModel",
     "vit_b_16": "src.models.baselines.vit_all.vit_base_patch16_224",
+    "rwkv": "src.models.sequence.rwkv.rwkv.RWKV",
 }
 
 layer = {
