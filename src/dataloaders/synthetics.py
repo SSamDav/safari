@@ -333,3 +333,7 @@ class ICLDataModule(SequenceDataset):
             shuffle=shuffle,
             persistent_workers=True
         )
+    
+    @property
+    def n_tokens(self):
+        return self.vocab_size

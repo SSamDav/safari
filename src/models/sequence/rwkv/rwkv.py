@@ -43,10 +43,8 @@ class RWKV_TimeMix_RWKV5_Preview(torch.jit.ScriptModule):
             self.time_decay = nn.Parameter(decay_speed)
             # print(layer_id, self.time_decay.flatten()[:3].cpu().numpy(), '...', self.time_decay.flatten()[-3:].cpu().numpy())
 
-            if 'r2' in os.environ["RWKV_MY_TESTING"]:
-                self.time_faaaa = nn.Parameter(torch.ones(self.n_head) * 0.05)
-            else:
-                self.time_first = nn.Parameter(torch.ones(self.n_head) * (-3.0))
+            self.time_faaaa = nn.Parameter(torch.ones(self.n_head) * 0.05)
+            
 
         self.time_shift = nn.ZeroPad2d((0, 0, 1, -1))
         self.receptance = nn.Linear(config.n_embd, config.n_embd, bias=False)

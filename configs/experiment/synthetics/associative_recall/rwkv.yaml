@@ -1,14 +1,20 @@
 # @package _global_
 defaults:
   - /experiment/synthetics/associative_recall/base.yaml
-  - override /scheduler: cosine_warmup
   - /model: rwkv
+  - override /scheduler: cosine_warmup
+
+dataset:
+  vocab_size: 30
+  input_seq_len: 2048
 
 model:  
   config:
     n_embd: 256
     head_size: 64
     n_layer: 2
-    dropout: 0.2
+    dropout: 0.05
     ctx_len: 2048
     dim_ffn: 1024 # n_embd * 4
+
+encoder: embedding
