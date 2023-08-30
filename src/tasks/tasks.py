@@ -174,7 +174,7 @@ class LMTask(BaseTask):
         self._state = state
         x, w = decoder(x, state=state, **z)
 
-        x = x.logits
+        x = x # TODO: check why x.logits in the beginning
         x = rearrange(x, '... C -> (...) C')
         y = rearrange(y, '... -> (...)')
 
