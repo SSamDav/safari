@@ -11,12 +11,12 @@ dataset:
 
 model:  
   config:
-    n_embd: 256
-    head_size: 64
+    n_embd: 128
+    head_size: 32
     n_layer: 2
     dropout: 0.05
     ctx_len: 16384
-    dim_ffn: 1024 # n_embd * 4
+    dim_ffn: 512 # n_embd * 4
 
 encoder: embedding
 
