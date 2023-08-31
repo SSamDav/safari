@@ -21,7 +21,7 @@ class RWKV_TimeMix_RWKV5_Preview(torch.jit.ScriptModule):
         assert config.n_embd % self.n_head == 0
         self.head_size_divisor = math.sqrt(self.head_size)
 
-        self.chunk_len = 512
+        self.chunk_len = config.chunk_len
         assert config.ctx_len % self.chunk_len == 0
 
         with torch.no_grad():
