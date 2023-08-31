@@ -9,3 +9,4 @@ config:
   dim_ffn: 1024 # n_embd * 4
   pre_ffn: 0
   my_pos_emb: 0
+  chunk_len: 512
