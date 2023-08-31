@@ -4,6 +4,7 @@ optimizer = {
     "rmsprop": "torch.optim.RMSprop",
     "sgd": "torch.optim.SGD",
     "lamb": "src.utils.optim.lamb.JITLamb",
+    "deepspeedcpuadam": "deepspeed.ops.adam.DeepSpeedCPUAdam"
 }
 
 scheduler = {

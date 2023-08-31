@@ -3,6 +3,7 @@ defaults:
   - /experiment/synthetics/associative_recall/base.yaml
   - /model: rwkv
   - override /scheduler: cosine_warmup
+  - override /optimizer: deepspeedcpuadam
 
 dataset:
   vocab_size: 30
@@ -22,7 +23,7 @@ encoder: embedding
 
 trainer:
   devices: 8
-  precision: bf16-mixed
+  precision: bf16
   strategy: deepspeed_stage_2_offload
 
 wandb:
