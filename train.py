@@ -634,10 +634,16 @@ def create_trainer(config, **kwargs):
     if isinstance(n_devices, Sequence):  # trainer.devices could be [1, 3] for example
         n_devices = len(n_devices)
     if n_devices > 1 and config.trainer.get('strategy', None) is None:
+        # config.trainer.strategy = dict(
+        #     _target_='pytorch_lightning.strategies.DDPStrategy',
+        #     find_unused_parameters=False,
+        #     gradient_as_bucket_view=True,  # https://pytorch-lightning.readthedocs.io/en/stable/advanced/advanced_gpu.html#ddp-optimizations
+        # )
         config.trainer.strategy = dict(
-            _target_='pytorch_lightning.strategies.DDPStrategy',
-            find_unused_parameters=False,
-            gradient_as_bucket_view=True,  # https://pytorch-lightning.readthedocs.io/en/stable/advanced/advanced_gpu.html#ddp-optimizations
+            _target_='pytorch_lightning.strategies.DeepSpeedStrategy',
+            offload_optimizer=True,
+            allgather_bucket_size=5e8,
+            reduce_bucket_size=5e8 
         )
 
     # Init lightning trainer
