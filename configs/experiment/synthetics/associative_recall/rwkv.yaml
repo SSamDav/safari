@@ -7,6 +7,7 @@ defaults:
 dataset:
   vocab_size: 30
   input_seq_len: 16384
+  data_dir: data
 
 model:  
   config:
